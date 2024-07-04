@@ -3,6 +3,7 @@
     public class Car
     {
         public Guid Id { get; set; } = Guid.NewGuid();
+        public Guid User_Id { get; set; }
         public string GovernmentNumber { get; set; } = string.Empty;
         public string Model { get; set; } = string.Empty;
         public int MinimalVoltage { get; set; } = 0;

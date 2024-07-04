@@ -24,7 +24,7 @@ namespace CarParking.API.Controllers
         [Consumes(MediaTypeNames.Application.Json)]
         public async Task<ActionResult<bool>> CreateCar([FromBody] CreateCarRequest request)
         {
-            var createCarCommand = new CreateCarCommand(request.GovernmentNumber, request.Model, request.MinimalVoltage);
+            var createCarCommand = new CreateCarCommand(request.UserId, request.GovernmentNumber, request.Model, request.MinimalVoltage);
 
             var result = await _mediator.Send(createCarCommand);
 
@@ -60,7 +60,7 @@ namespace CarParking.API.Controllers
         [Consumes(MediaTypeNames.Application.Json)]
         public async Task<ActionResult<bool>> UpdateCar([FromBody] UpdateCarRequest request)
         {
-            var updateCarCommand = new UpdateCarCommand(request.Id, request.GovernmentNumber, request.Model, request.MinimalVoltage);
+            var updateCarCommand = new UpdateCarCommand(request.Id, request.UserId, request.GovernmentNumber, request.Model, request.MinimalVoltage);
 
             var result = await _mediator.Send(updateCarCommand);
 
