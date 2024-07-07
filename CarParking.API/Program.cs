@@ -1,3 +1,4 @@
+using CarParking.API.Hubs;
 using Domain.Stores;
 using Persistance.Repositories;
 
@@ -14,7 +15,7 @@ builder.Services.AddCors(options =>
 builder.Services
     .AddCarCollectionInfrastructure(builder.Configuration)
     .AddApplication();
-
+builder.Services.AddSignalR();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -33,8 +34,17 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseRouting();
+
 app.UseCors("AllowSpecificOrigin");
 
-app.MapControllers();
+app.UseAuthentication();
+app.UseAuthorization();
+
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapHub<FeedbackHub>("/feedbackHub");
+    endpoints.MapControllers();
+});
 
 app.Run();
