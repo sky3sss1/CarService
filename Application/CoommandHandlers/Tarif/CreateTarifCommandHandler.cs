@@ -13,7 +13,7 @@
 
         public async Task<bool> Handle(CreateTarifCommand command, CancellationToken cancellationToken)
         {
-            var tarif = new Tarif (command.Name, command.Cost );
+            var tarif = new Tarif (command.Wash_Id, command.Name, command.Cost );
             _repository.Add(tarif);
             return true;
         }

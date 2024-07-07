@@ -24,7 +24,7 @@ namespace CarParking.API.Controllers
         [Consumes(MediaTypeNames.Application.Json)]
         public async Task<ActionResult<bool>> CreateTarif([FromBody] CreateTarifRequest request)
         {
-            var createTarifCommand = new CreateTarifCommand(request.Name, request.Cost);
+            var createTarifCommand = new CreateTarifCommand(request.Wash_id, request.Name, request.Cost);
 
             var result = await _mediator.Send(createTarifCommand);
 
@@ -60,7 +60,7 @@ namespace CarParking.API.Controllers
         [Consumes(MediaTypeNames.Application.Json)]
         public async Task<ActionResult<bool>> UpdateTarif([FromBody] UpdateTarifRequest request)
         {
-            var updateTarifCommand = new UpdateTarifCommand(request.Id, request.Name, request.Cost);
+            var updateTarifCommand = new UpdateTarifCommand(request.Wash_Id, request.Id, request.Name, request.Cost);
 
             var result = await _mediator.Send(updateTarifCommand);
 

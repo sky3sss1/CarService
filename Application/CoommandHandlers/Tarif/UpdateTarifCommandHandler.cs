@@ -15,6 +15,7 @@
         {
             var tarif = await _repository.GetById(command.Id);
             if (tarif == null) return false;
+            tarif.Wash_Id = command.Wash_Id;
             tarif.Name = command.Name;
             tarif.Cost = command.Cost;
             _repository.Update(tarif);

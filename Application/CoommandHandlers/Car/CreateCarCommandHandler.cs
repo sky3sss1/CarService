@@ -13,7 +13,7 @@
 
         public async Task<bool> Handle(CreateCarCommand command, CancellationToken cancellationToken)
         {
-            var car = new Car(command.GovernmentNumber, command.Model, command.MinimalVoltage);
+            var car = new Car(command.User_Id,command.GovernmentNumber, command.Model, command.MinimalVoltage);
             _repository.Add(car);
             return true;
         }

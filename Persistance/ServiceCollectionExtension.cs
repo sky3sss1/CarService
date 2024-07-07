@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Application;
 using Persistance.Repositories;
+using Persistence;
 
 namespace Persistance
 {
@@ -16,6 +17,7 @@ namespace Persistance
 
             services.AddTransient<IApplicationDbContext, ApplicationDbContext>();
             services.AddTransient<ICarRepository, CarRepository>();
+            services.AddTransient<IWashRepository, WashRepository>();
             services.AddTransient<IFeedbackRepository, FeedbackRepository>();
             services.AddTransient<IFloorRepository, FloorRepository>();
             services.AddTransient<IParkingRepository, ParkingRepository>();
@@ -26,6 +28,11 @@ namespace Persistance
             services.AddTransient<IPaymentRepository, PaymentRepository>();
             services.AddHostedService<LoosedDaysService>();
             services.AddApplication();
+
+            using (var serviceProvider = services.BuildServiceProvider())
+            {
+                DatabaseInitializer.Initialize(serviceProvider);
+            }
 
             return services;
         }

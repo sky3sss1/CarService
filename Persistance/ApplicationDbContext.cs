@@ -8,6 +8,7 @@ namespace Persistance
         {
             Database.EnsureCreated();
         }
+        public DbSet<Wash> Washes { get; set; } = null!;
         public DbSet<Car> Cars { get; set; } = null!;
         public DbSet<Floor> Floors { get; set; } = null!;
         public DbSet<Parking> Parkings { get; set; } = null!;
