@@ -15,7 +15,7 @@
         {
             var rent = await _repository.GetById(command.Id);
             if (rent == null) return false;
-            _repository.Delete(rent);
+            await _repository.Delete(rent);
             return true;
         }
     }

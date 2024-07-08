@@ -15,7 +15,7 @@
         {
             var tarif = await _repository.GetById(command.Id);
             if (tarif == null) return false;
-            _repository.Delete(tarif);
+            await _repository.Delete(tarif);
             return true;
         }
     }

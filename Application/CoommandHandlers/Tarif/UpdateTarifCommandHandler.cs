@@ -19,7 +19,7 @@
             tarif.Name = command.Name;
             tarif.Cost = command.Cost;
             tarif.CostIfLoosed = command.CostIfLoosed;
-            _repository.Update(tarif);
+            await _repository.Update(tarif);
             return true;
         }
     }

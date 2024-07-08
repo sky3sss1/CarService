@@ -17,7 +17,7 @@
             if (parking == null) return false;
             parking.Floor_Id = command.Floor_Id;
             parking.Place_Id = command.Place_Id;
-            _repository.Update(parking);
+            await _repository.Update(parking);
             return true;
         }
     }

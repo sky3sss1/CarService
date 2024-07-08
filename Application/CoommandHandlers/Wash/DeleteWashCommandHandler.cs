@@ -17,7 +17,7 @@
 
             if (wash == null) return false;
 
-            _repository.Delete(wash);
+            await _repository.Delete(wash);
 
             return true;
         }

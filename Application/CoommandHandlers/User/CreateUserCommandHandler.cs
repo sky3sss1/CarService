@@ -14,7 +14,7 @@
         public async Task<bool> Handle(CreateUserCommand command, CancellationToken cancellationToken)
         {
             var user = new User(command.Name, command.Email,command.Phone_Number);
-            _repository.Add(user);
+            await _repository.Add(user);
             return true;
         }
     }

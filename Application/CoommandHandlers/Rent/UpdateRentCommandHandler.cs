@@ -21,7 +21,7 @@
             rent.Start_Date = command.Start_Date;
             rent.End_Date = command.End_Date;
             rent.LosedDays = command.LosedDays;
-            _repository.Update(rent);
+            await _repository.Update(rent);
             return true;
         }
     }

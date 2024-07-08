@@ -15,7 +15,7 @@
         {
             var payment = await _repository.GetById(command.Id);
             if (payment == null) return false;
-            _repository.Delete(payment);
+            await _repository.Delete(payment);
             return true;
         }
     }

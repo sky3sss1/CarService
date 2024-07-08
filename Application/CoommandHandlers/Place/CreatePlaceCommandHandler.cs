@@ -14,7 +14,7 @@
         public async Task<bool> Handle(CreatePlaceCommand command, CancellationToken cancellationToken)
         {
             var place = new Place (command.Is_Charge, command.Voltage );
-            _repository.Add(place);
+            await _repository.Add(place);
             return true;
         }
     }

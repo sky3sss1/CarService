@@ -20,7 +20,7 @@
             feedback.User_Id = command.User_Id;
             feedback.Text = command.Text;
 
-            _repository.Update(feedback);
+            await _repository.Update(feedback);
 
             return true;
         }

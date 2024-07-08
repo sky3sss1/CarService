@@ -18,7 +18,7 @@
             car.GovernmentNumber = command.GovernmentNumber;
             car.Model = command.Model;
             car.MinimalVoltage = command.MinimalVoltage;
-            _repository.Update(car);
+            await _repository.Update(car);
             return true;
         }
     }

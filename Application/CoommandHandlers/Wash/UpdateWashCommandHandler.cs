@@ -20,7 +20,7 @@
             wash.Price = command.Price;
             wash.Description = command.Description;
 
-            _repository.Update(wash);
+            await _repository.Update(wash);
 
             return true;
         }

@@ -18,7 +18,7 @@
             user.Name = command.Name;
             user.Email = command.Email;
             user.Phone_Number = command.Phone_Number;
-            _repository.Update(user);
+            await _repository.Update(user);
             return true;
         }
     }

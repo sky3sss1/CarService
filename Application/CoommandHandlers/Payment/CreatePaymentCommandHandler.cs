@@ -14,7 +14,7 @@
         public async Task<bool> Handle(CreatePaymentCommand command, CancellationToken cancellationToken)
         {
             var payment = new Payment(command.FromStart, command.Tarif_Id );
-            _repository.Add(payment);
+            await _repository.Add(payment);
             return true;
         }
     }

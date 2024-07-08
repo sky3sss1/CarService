@@ -1,4 +1,6 @@
 ﻿using Application;
+using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 
 namespace Persistance
 {
@@ -18,5 +20,17 @@ namespace Persistance
         public DbSet<Tarif> Tarifs { get; set; } = null!;
         public DbSet<User> Users { get; set; } = null!;
         public DbSet<Feedback> Feedbacks { get; set; } = null!;
+
+        public List<string> GetTableNames()
+        {
+            var tableNames = this.GetType()
+                .GetProperties(BindingFlags.Public | BindingFlags.Instance)
+                .Where(p => p.PropertyType.IsGenericType &&
+                            p.PropertyType.GetGenericTypeDefinition() == typeof(DbSet<>))
+                .Select(p => p.Name)
+                .ToList();
+
+            return tableNames;
+        }
     }
 }

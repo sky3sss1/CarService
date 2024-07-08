@@ -31,7 +31,7 @@ namespace CarParking.API.Controllers
             return Ok(result);
         }
 
-        [HttpPost("DeleteCar/{id}")]
+        [HttpDelete("DeleteCar/{id}")]
         public async Task<ActionResult<bool>> DeleteCar(Guid id)
         {
             var deleteCarCommand = new DeleteCarCommand(id);

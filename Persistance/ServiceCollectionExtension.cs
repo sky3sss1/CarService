@@ -13,20 +13,25 @@ namespace Persistance
             if (services == null)
                 throw new ArgumentNullException(nameof(services));
 
-            services.AddDbContext<ApplicationDbContext>(options => options.UseNpgsql(configuration.GetConnectionString("PostgreSqlDatabase")));
+            services.AddDbContext<ApplicationDbContext>(options =>
+                options.UseNpgsql(configuration.GetConnectionString("PostgreSqlDatabase")),ServiceLifetime.Scoped);
 
-            services.AddTransient<IApplicationDbContext, ApplicationDbContext>();
-            services.AddTransient<ICarRepository, CarRepository>();
-            services.AddTransient<IWashRepository, WashRepository>();
-            services.AddTransient<IFeedbackRepository, FeedbackRepository>();
-            services.AddTransient<IFloorRepository, FloorRepository>();
-            services.AddTransient<IParkingRepository, ParkingRepository>();
-            services.AddTransient<IPlaceRepository, PlaceRepository>();
-            services.AddTransient<IRentRepository, RentRepository>();
-            services.AddTransient<ITarifRepository, TarifRepository>();
-            services.AddTransient<IUserRepository, UserRepository>();
-            services.AddTransient<IPaymentRepository, PaymentRepository>();
+            // Регистрация контекста базы данных и репозиториев как Scoped
+            services.AddScoped<IApplicationDbContext, ApplicationDbContext>();
+            services.AddScoped<ICarRepository, CarRepository>();
+            services.AddScoped<IWashRepository, WashRepository>();
+            services.AddScoped<IFeedbackRepository, FeedbackRepository>();
+            services.AddScoped<IFloorRepository, FloorRepository>();
+            services.AddScoped<IParkingRepository, ParkingRepository>();
+            services.AddScoped<IPlaceRepository, PlaceRepository>();
+            services.AddScoped<IRentRepository, RentRepository>();
+            services.AddScoped<ITarifRepository, TarifRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IPaymentRepository, PaymentRepository>();
+
+            // Регистрация других сервисов
             services.AddHostedService<LoosedDaysService>();
+
             services.AddApplication();
 
             using (var serviceProvider = services.BuildServiceProvider())

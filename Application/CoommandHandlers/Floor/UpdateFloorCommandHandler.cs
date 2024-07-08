@@ -16,7 +16,7 @@
             var floor = await _repository.GetById(command.Id);
             if (floor == null) return false;
             floor.FloorNumber = command.FloorNumber;
-            _repository.Update(floor);
+            await _repository.Update(floor);
             return true;
         }
     }

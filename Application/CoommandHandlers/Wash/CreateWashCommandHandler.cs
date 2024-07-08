@@ -15,7 +15,7 @@
         {
             var wash = new Wash(command.Price, command.Description);
 
-            _repository.Add(wash);
+            await _repository.Add(wash);
 
             return true;
         }

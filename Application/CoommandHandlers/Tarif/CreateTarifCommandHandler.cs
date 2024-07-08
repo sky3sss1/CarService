@@ -14,7 +14,7 @@
         public async Task<bool> Handle(CreateTarifCommand command, CancellationToken cancellationToken)
         {
             var tarif = new Tarif (command.Wash_Id, command.Name, command.Cost, command.CostIfLoosed);
-            _repository.Add(tarif);
+            await _repository.Add(tarif);
             return true;
         }
     }

@@ -15,7 +15,7 @@
         {
             var place = await _repository.GetById(command.Id);
             if (place == null) return false;
-            _repository.Delete(place);
+            await _repository.Delete(place);
             return true;
         }
     }

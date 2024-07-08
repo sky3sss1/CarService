@@ -31,7 +31,7 @@ namespace CarParking.API.Controllers
             return Ok(result);
         }
 
-        [HttpPost("DeleteFeedback/{id}")]
+        [HttpDelete("DeleteFeedback/{id}")]
         public async Task<ActionResult<bool>> DeleteFeedback(Guid id)
         {
             var deleteFeedbackCommand = new DeleteFeedbackCommand(id);

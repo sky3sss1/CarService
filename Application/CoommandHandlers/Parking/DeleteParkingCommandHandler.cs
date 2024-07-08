@@ -15,7 +15,7 @@
         {
             var parking = await _repository.GetById(command.Id);
             if (parking == null) return false;
-            _repository.Delete(parking);
+            await _repository.Delete(parking);
             return true;
         }
     }

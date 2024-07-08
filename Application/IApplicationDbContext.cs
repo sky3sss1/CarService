@@ -12,5 +12,7 @@
         public DbSet<User> Users { get; set; }
         public DbSet<Feedback> Feedbacks { get; set; }
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);
+
+        List<string> GetTableNames();
     }
 }

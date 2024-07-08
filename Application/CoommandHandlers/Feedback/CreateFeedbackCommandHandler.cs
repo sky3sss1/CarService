@@ -15,7 +15,7 @@
         {
             var feedback = new Feedback(command.User_Id, command.Text);
 
-            _repository.Add(feedback);
+            await _repository.Add(feedback);
 
             return true;
         }

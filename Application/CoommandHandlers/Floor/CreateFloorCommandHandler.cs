@@ -14,7 +14,7 @@
         public async Task<bool> Handle(CreateFloorCommand command, CancellationToken cancellationToken)
         {
             var floor = new Floor (command.FloorNumber);
-            _repository.Add(floor);
+            await _repository.Add(floor);
             return true;
         }
     }

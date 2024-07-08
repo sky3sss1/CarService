@@ -17,7 +17,7 @@
             if (payment == null) return false;
             payment.FromStart = command.FromStart;
             payment.Tarif_Id = command.Tarif_Id;
-            _repository.Update(payment);
+            await _repository.Update(payment);
             return true;
         }
     }

@@ -17,7 +17,7 @@
 
             if (feedback == null) return false;
 
-            _repository.Delete(feedback);
+            await _repository.Delete(feedback);
 
             return true;
         }

@@ -15,7 +15,7 @@
         {
             var user = await _repository.GetById(command.Id);
             if (user == null) return false;
-            _repository.Delete(user);
+            await _repository.Delete(user);
             return true;
         }
     }

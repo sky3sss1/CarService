@@ -17,7 +17,7 @@
             if (place == null) return false;
             place.Is_Charge = command.Is_Charge;
             place.Voltage = command.Voltage;
-            _repository.Update(place);
+            await _repository.Update(place);
             return true;
         }
     }

@@ -14,7 +14,7 @@
         public async Task<bool> Handle(CreateParkingCommand command, CancellationToken cancellationToken)
         {
             var parking = new Parking(command.Floor_Id, command.Place_Id );
-            _repository.Add(parking);
+            await _repository.Add(parking);
             return true;
         }
     }

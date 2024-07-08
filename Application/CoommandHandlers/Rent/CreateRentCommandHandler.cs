@@ -21,7 +21,7 @@
                 command.Start_Date,
                 command.End_Date
             );
-            _repository.Add(rent);
+            await _repository.Add(rent);
             return true;
         }
     }

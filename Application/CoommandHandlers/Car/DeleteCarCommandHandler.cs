@@ -15,7 +15,7 @@
         {
             var car = await _repository.GetById(command.Id);
             if (car == null) return false;
-            _repository.Delete(car);
+            await _repository.Delete(car);
             return true;
         }
     }
