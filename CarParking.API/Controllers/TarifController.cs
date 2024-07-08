@@ -73,5 +73,19 @@ namespace CarParking.API.Controllers
             var tarifs = await _mediator.Send(command);
             return Ok(tarifs);
         }
+        [HttpGet("GetTarifFullPriceById/{id}")]
+        public async Task<ActionResult<Tarif>> GetTarifFullPriceById(Guid id)
+        {
+            var getTarifFullPriceByIdCommand = new GetTarifFullPriceByIdCommand(id);
+
+            var tarif = await _mediator.Send(getTarifFullPriceByIdCommand);
+
+            if (tarif == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(tarif);
+        }
     }
 }
