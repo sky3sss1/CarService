@@ -3,7 +3,6 @@
     public record UpdateRentRequest
     (
         Guid Id,
-        Guid User_Id,
         Guid Parking_Id,
         Guid Car_Id,
         Guid Payment_Id,

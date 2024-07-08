@@ -55,35 +55,40 @@ namespace Persistence
                             Id = Guid.NewGuid(),
                             Wash_Id = basicWashId,
                             Name = "Basic Tarif",
-                            Cost = 500 
+                            Cost = 500,
+                            CostIfLoosed = 1000
                         },
                         new Tarif
                         {
                             Id = Guid.NewGuid(),
                             Wash_Id = basicWashId,
                             Name = "Deluxe Tarif",
-                            Cost = 1000
+                            Cost = 1000,
+                            CostIfLoosed = 3000
                         },
                         new Tarif
                         {
                             Id = Guid.NewGuid(),
                             Wash_Id = standardWashId,
                             Name = "Standard Tarif",
-                            Cost = 1000
+                            Cost = 1000,
+                            CostIfLoosed = 2000
                         },
                         new Tarif
                         {
                             Id = Guid.NewGuid(),
                             Wash_Id = standardWashId,
                             Name = "Premium Tarif",
-                            Cost = 2000 
+                            Cost = 2000,
+                            CostIfLoosed = 3000
                         },
                         new Tarif
                         {
                             Id = Guid.NewGuid(),
                             Wash_Id = premiumWashId,
                             Name = "Full Service Tarif",
-                            Cost = 3000 
+                            Cost = 3000,
+                            CostIfLoosed = 7000
                         }
                     );
 

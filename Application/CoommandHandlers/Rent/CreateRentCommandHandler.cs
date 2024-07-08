@@ -15,7 +15,6 @@
         {
             var rent = new Rent
             (
-                command.User_Id,
                 command.Parking_Id,
                 command.Car_Id,
                 command.Payment_Id,

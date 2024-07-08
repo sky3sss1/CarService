@@ -2,7 +2,6 @@
 {
     public record CreateRentRequest
     (
-        Guid User_Id,
         Guid Parking_Id,
         Guid Car_Id,
         Guid Payment_Id,

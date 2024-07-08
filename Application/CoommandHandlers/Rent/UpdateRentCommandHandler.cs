@@ -15,7 +15,6 @@
         {
             var rent = await _repository.GetById(command.Id);
             if (rent == null) return false;
-            rent.User_Id = command.User_Id;
             rent.Parking_Id = command.Parking_Id;
             rent.Car_Id = command.Car_Id;
             rent.Payment_Id = command.Payment_Id;

@@ -18,6 +18,7 @@
             tarif.Wash_Id = command.Wash_Id;
             tarif.Name = command.Name;
             tarif.Cost = command.Cost;
+            tarif.CostIfLoosed = command.CostIfLoosed;
             _repository.Update(tarif);
             return true;
         }

@@ -25,7 +25,6 @@ namespace CarParking.API.Controllers
         public async Task<ActionResult<bool>> CreateRent([FromBody] CreateRentRequest request)
         {
             var createRentCommand = new CreateRentCommand(
-                request.User_Id,
                 request.Parking_Id,
                 request.Car_Id,
                 request.Payment_Id,
@@ -69,7 +68,6 @@ namespace CarParking.API.Controllers
         {
             var updateRentCommand = new UpdateRentCommand(
                 request.Id,
-                request.User_Id,
                 request.Parking_Id,
                 request.Car_Id,
                 request.Payment_Id,

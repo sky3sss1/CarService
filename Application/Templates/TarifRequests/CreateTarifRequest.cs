@@ -4,6 +4,7 @@
     (
         Guid Wash_id,
         string Name,
-        int Cost
+        int Cost,
+        int CostIfLoosed
     );
 }
