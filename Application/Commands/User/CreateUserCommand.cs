@@ -1,6 +1,6 @@
 ﻿namespace Application.Commands
 {
-    public class CreateUserCommand : IRequest<bool>
+    public class CreateUserCommand : IRequest<User>
     {
         public string Name { get; set; }
         public string Email { get; set; }

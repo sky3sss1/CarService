@@ -1,6 +1,6 @@
 ﻿namespace Application.CommandHandlers
 {
-    public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, bool>
+    public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, User>
     {
         private readonly IUserRepository _repository;
         private readonly IMediator _mediator;
@@ -11,11 +11,11 @@
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
         }
 
-        public async Task<bool> Handle(CreateUserCommand command, CancellationToken cancellationToken)
+        public async Task<User> Handle(CreateUserCommand command, CancellationToken cancellationToken)
         {
             var user = new User(command.Name, command.Email,command.Phone_Number);
             await _repository.Add(user);
-            return true;
+            return user;
         }
     }
 }
