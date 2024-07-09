@@ -1,6 +1,6 @@
 ﻿namespace Application.CoommandHandlers
 {
-    public class CreateCarCommandHandler : IRequestHandler<CreateCarCommand, bool>
+    public class CreateCarCommandHandler : IRequestHandler<CreateCarCommand, Car>
     {
         private readonly ICarRepository _repository;
         private readonly IMediator _mediator;
@@ -11,11 +11,11 @@
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
         }
 
-        public async Task<bool> Handle(CreateCarCommand command, CancellationToken cancellationToken)
+        public async Task<Car> Handle(CreateCarCommand command, CancellationToken cancellationToken)
         {
             var car = new Car(command.User_Id,command.GovernmentNumber, command.Model, command.MinimalVoltage);
             await _repository.Add(car);
-            return true;
+            return car;
         }
     }
 }

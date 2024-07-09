@@ -1,6 +1,6 @@
 ﻿namespace Application.Commands
 {
-    public class CreateCarCommand : IRequest<bool>
+    public class CreateCarCommand : IRequest<Car>
     {
         public Guid User_Id { get; set; }
         public string GovernmentNumber { get; set; } = string.Empty;
